@@ -1,8 +1,6 @@
 package com.example.jfood_android;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,7 +8,6 @@ import android.view.View;
 import android.widget.*;
 import com.android.volley.*;
 import com.android.volley.toolbox.Volley;
-
 import org.json.*;
 
 public class RegisterActivity extends AppCompatActivity {
