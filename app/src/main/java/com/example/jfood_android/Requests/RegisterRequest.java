@@ -1,4 +1,4 @@
-package com.example.jfood_android;
+package com.example.jfood_android.Requests;
 
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.Response;

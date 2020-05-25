@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.*;
 import com.android.volley.*;
 import com.android.volley.toolbox.Volley;
+import com.example.jfood_android.Requests.RegisterRequest;
+
 import org.json.*;
 
 public class RegisterActivity extends AppCompatActivity {

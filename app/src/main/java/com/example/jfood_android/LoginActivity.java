@@ -11,6 +11,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
+import com.example.jfood_android.Requests.LoginRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,6 +27,8 @@ public class LoginActivity extends AppCompatActivity {
         final Button btnLogin = findViewById(R.id.btnLogin);
         final TextView tvRegister = findViewById(R.id.tvRegister);
 
+
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,8 +42,12 @@ public class LoginActivity extends AppCompatActivity {
                             JSONObject jsonObject = new JSONObject(response);
                             if (jsonObject != null) {
                                 Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_LONG).show();
-                                Intent returnMainIntent = new Intent(LoginActivity.this, LoginActivity.class);
-                                startActivity(returnMainIntent);
+                                Intent loginIntent = new Intent(LoginActivity.this, MainActivity.class);
+                                loginIntent.putExtra("currentUserId", jsonObject.getInt("id"));
+                                loginIntent.putExtra("currentUserName", jsonObject.getString("name"));
+                                loginIntent.putExtra("currentUserEmail", jsonObject.getString("email"));
+                                startActivity(loginIntent);
+                                finish();
                             }
                         } catch (JSONException e) {
                             Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_LONG).show();

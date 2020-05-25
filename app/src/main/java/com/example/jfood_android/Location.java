@@ -1,7 +1,7 @@
 package com.example.jfood_android;
 
-public class Location {
-
+public class Location
+{
     /**
      * Variabel Location
      */
@@ -21,4 +21,56 @@ public class Location {
         this.city = city;
     }
 
+    /**
+     * Mengambil province dari class Location
+     * @return province
+     */
+    public String getProvince(){
+        return province;
+    }
+
+    /**
+     * Mengambil description dari class Location
+     * @return description
+     */
+    public String getDescription(){
+        return description;
+    }
+
+    /**
+     * Mengambil city dari class Location
+     * @return city
+     */
+    public String getCity(){
+        return city;
+    }
+
+    /**
+     * Menetapkan value province dari class Location
+     * @param province
+     */
+    public void setProvince(String province){
+        this.province = province;
+    }
+
+    /**
+     * Menetapkan value description dari class Location
+     * @param description
+     */
+    public void setDescription(String description){
+        this.description = description;
+    }
+
+    /**
+     * Menetapkan value city dari class Location
+     * @param city
+     */
+    public void setCity(String city){
+        this.city = city;
+    }
+
+    public String toSting(){
+        return "\nProvince: "+getProvince()+"\nCity: "+getCity() +"\nDescription: "+getDescription();
+    }
 }
+
