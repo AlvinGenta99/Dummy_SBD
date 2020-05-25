@@ -58,7 +58,7 @@ public class SelesaiPesananActivity extends AppCompatActivity {
             detailInvoiceId = extras.getInt("detailInvoiceId");
             detailDate = extras.getString("detailDate");
             detailTotalPrice = extras.getInt("detailTotalPrice");
-            detailFoodName = extras.getString("detailFoodName");
+            detailFoodName = extras.getString("item_name");
             detailFoodCategory = extras.getString("detailFoodCategory");
             detailNameSeller = extras.getString("detailNameSeller");
             detailProvinceSeller = extras.getString("detailProvinceSeller");

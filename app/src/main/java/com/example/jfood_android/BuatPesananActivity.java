@@ -59,7 +59,7 @@ public class BuatPesananActivity extends AppCompatActivity {
         if (extras != null) {
             currentUserName = extras.getString("currentUserName");
             currentUserId = extras.getInt("currentUserId");
-            foodId = extras.getInt("foodId");
+            foodId = extras.getInt("item_id");
             foodName = extras.getString("item_name");
             foodPrice = extras.getInt("item_price");
         }
