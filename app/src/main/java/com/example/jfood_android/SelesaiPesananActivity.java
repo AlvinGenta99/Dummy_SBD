@@ -25,7 +25,7 @@ public class SelesaiPesananActivity extends AppCompatActivity {
     private int detailInvoiceId;
     private String detailDate;
     private int detailTotalPrice;
-    private String detailFoodName;
+    private String detailFoodName = "";
     private String detailFoodCategory;
     private String detailNameSeller;
     private String detailProvinceSeller;
@@ -58,13 +58,12 @@ public class SelesaiPesananActivity extends AppCompatActivity {
             detailInvoiceId = extras.getInt("detailInvoiceId");
             detailDate = extras.getString("detailDate");
             detailTotalPrice = extras.getInt("detailTotalPrice");
-            detailFoodName = extras.getString("item_name");
+            detailFoodName = extras.getString("detailFoodName");
             detailFoodCategory = extras.getString("detailFoodCategory");
             detailNameSeller = extras.getString("detailNameSeller");
             detailProvinceSeller = extras.getString("detailProvinceSeller");
             detailInvoiceStatus = extras.getString("detailInvoiceStatus");
             detailPaymentType = extras.getString("detailPaymentType");
-            //detailDeliveryFee = extras.getInt("currentUserId");
             detailCodePromo = extras.getString("detailCodePromo");
         }
 

@@ -6,6 +6,13 @@
     android:background="#f4f4f4"
     android:orientation="vertical">
 
+    <ExpandableListView
+        android:id="@+id/lvExp"
+        android:layout_width="match_parent"
+        android:layout_height="458dp">
+
+    </ExpandableListView>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/viewInvoice"
         android:layout_width="226dp"
@@ -15,12 +22,13 @@
         android:clickable="true"
         app:srcCompat="@android:drawable/ic_dialog_info" />
 
-    <ExpandableListView
-        android:id="@+id/lvExp"
-        android:layout_width="match_parent"
-        android:layout_height="518dp">
-
-    </ExpandableListView>
+    <Button
+        android:id="@+id/btnFinishOrder"
+        android:layout_width="412dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:baselineAligned="true"
+        android:text="Process Order" />
 
 </LinearLayout>
 

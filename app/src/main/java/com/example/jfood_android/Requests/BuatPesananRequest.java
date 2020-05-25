@@ -12,12 +12,12 @@ public class BuatPesananRequest extends StringRequest {
     private static String URLCashless = "http://192.168.0.5:8080/invoice/createCashlessInvoice";
     private Map<String, String> params;
 
-    public BuatPesananRequest(String makanan, String customer, Response.Listener<String> listener) {
+    public BuatPesananRequest(String makanan, String customer, int deliveryFee, Response.Listener<String> listener) {
         super(Method.POST, URLCash, listener, null);
         params = new HashMap<>();
         params.put("makanan", makanan);
         params.put("customer", customer);
-        params.put("deliveryFee", "0");
+        params.put("deliveryFee", String.valueOf(deliveryFee));
     }
 
     public BuatPesananRequest(String makanan, String customer, String promoCode ,Response.Listener<String> listener) {

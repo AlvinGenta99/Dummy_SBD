@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import com.android.volley.RequestQueue;
@@ -34,8 +35,12 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Seller> listSeller = new ArrayList<>();
     private ArrayList<Food> foodIdList = new ArrayList<>();
     private ArrayList<Food> foodTemp = new ArrayList<>();
+    private int foodTotalPrice = 0;
+    private int deliveryFee = 5000;
     private Food foodList;
-    private ArrayList<Integer> foodCart = new ArrayList<>();
+    private String nameList, idList;
+    private ArrayList<String> foodCartName = new ArrayList<>();
+    private ArrayList<String> foodCartId= new ArrayList<>();
     private HashMap<Seller, ArrayList<Food>> childMapping = new HashMap<>();
     private static int currentUserId;
     private static String currentUserName;
@@ -47,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
     private int detailInvoiceId;
     private String detailDate;
     private int detailTotalPrice;
-    private String detailFoodName;
+    private ArrayList<String> detailFoodName;
+    private String detailFoodNameList;
 //    private String foodNamePass = "";
 //    private int foodPricePass = 0;
     private String detailFoodCategory;
@@ -64,7 +70,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final FloatingActionButton faViewInvoice = findViewById(R.id.viewInvoice);
+        final FloatingActionButton faMakeInvoice = findViewById(R.id.viewInvoice);
+        final Button btnFinishOrder = findViewById(R.id.btnFinishOrder);
         final SessionManager session = new SessionManager(getApplicationContext());
 
         Bundle extras = getIntent().getExtras();
@@ -80,10 +87,9 @@ public class MainActivity extends AppCompatActivity {
         refreshList();
 
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
-
-                Intent intent = new Intent(MainActivity.this, BuatPesananActivity.class);
 
                 int foodId = childMapping.get(listSeller.get(i)).get(i1).getId();
                 String foodName = childMapping.get(listSeller.get(i)).get(i1).getName();
@@ -92,40 +98,54 @@ public class MainActivity extends AppCompatActivity {
                 String foodSellerName = childMapping.get(listSeller.get(i)).get(i1).getSeller().getName();
                 int foodPrice = childMapping.get(listSeller.get(i)).get(i1).getPrice();
 //
-//                if(tempSeller != null && tempSeller.equals(foodSellerName)){
-//                    Log.e("Food Cart", foodCart.toString());
-//                    foodList = new Food(foodId, foodName, foodPrice, foodCategory,foodSeller);
-//                    foodTemp.add (foodList);
-//                    Log.e("Array Food", foodTemp.toString());
-//                }
-//
-//                else if(tempSeller == null){
-//                    tempSeller = foodSellerName;
-//                    foodList = new Food(foodId, foodName, foodPrice, foodCategory,foodSeller);
-//                    foodTemp.add (foodList);
-//                    foodCart.add(foodId);
-//                    Log.e("First item", foodCart.toString());
-//                }
-//
-//                else{
-//                    Toast.makeText(MainActivity.this, "DIFFERENT SELLER", Toast.LENGTH_LONG).show();
-//                }
-                intent.putExtra("item_id",foodId);
-                intent.putExtra("item_name",foodName);
-                intent.putExtra("item_category",foodCategory);
-                intent.putExtra("item_price",foodPrice);
-                intent.putExtra("currentUserId", currentUserId);
-                intent.putExtra("currentUserName", currentUserName);
-                startActivity(intent);
+                if(tempSeller != null && tempSeller.equals(foodSellerName)){
+                    foodList = new Food(foodId, foodName, foodPrice, foodCategory,foodSeller);
+                    foodTemp.add (foodList);
+                    Log.e("Array Food", foodTemp.toString());
+                }
+
+                else if(tempSeller == null){
+                    tempSeller = foodSellerName;
+                    foodList = new Food(foodId, foodName, foodPrice, foodCategory,foodSeller);
+                    foodTemp.add (foodList);
+                }
+
+                else{
+                    Toast.makeText(MainActivity.this, "DIFFERENT SELLER", Toast.LENGTH_LONG).show();
+                }
                 return true;
             }
         });
 
-        faViewInvoice.setOnClickListener(new View.OnClickListener(){
+        faMakeInvoice.setOnClickListener(new View.OnClickListener(){
+            Intent intent = new Intent(MainActivity.this, BuatPesananActivity.class);
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onClick (View view){
+                for(Food ptr : foodTemp) {
+                    foodCartId.add(String.valueOf(ptr.getId()));
+                    foodCartName.add(ptr.getName());
+                    foodTotalPrice = foodTotalPrice + ptr.getPrice();
+                }
+                idList = String.join(", ", foodCartId);
+                nameList = String.join(", ", foodCartName);
+
+                intent.putExtra("item_id",idList);
+                intent.putExtra("nameList",nameList);
+//                intent.putExtra("item_category",foodCategory);
+                intent.putExtra("foodTotalPrice",foodTotalPrice);
+                intent.putExtra("currentUserId", currentUserId);
+                intent.putExtra("currentUserName", currentUserName);
+                startActivity(intent);
+            }
+        });
+
+        btnFinishOrder.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 final Intent intentSelesai = new Intent(MainActivity.this, SelesaiPesananActivity.class);
                 final Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @RequiresApi(api = Build.VERSION_CODES.O)
                     @Override
                     public void onResponse(String response) {
                         try {
@@ -133,13 +153,13 @@ public class MainActivity extends AppCompatActivity {
                             for (int i = 0; i < jsonResponse.length(); i++) {
                                 JSONObject invoice = jsonResponse.getJSONObject(i);
                                 JSONArray foods = invoice.getJSONArray("foods");
+                                detailFoodName = new ArrayList<>();
                                 for (int j = 0; j < foods.length(); j++) {
                                     JSONObject food = foods.getJSONObject(j);
                                     JSONObject seller = food.getJSONObject("seller");
                                     JSONObject location = seller.getJSONObject("location");
 
-                                    detailFoodName = food.getString("name");
-                                    detailFoodCategory = food.getString("category");
+                                    detailFoodName.add(food.getString("name"));
                                     detailNameSeller = seller.getString("name");
                                     detailProvinceSeller = location.getString("province");
                                 }
@@ -158,16 +178,15 @@ public class MainActivity extends AppCompatActivity {
                             }
                             if (jsonResponse.length()>0 && detailInvoiceStatus.equals("ONGOING")) {
                                 Toast.makeText(MainActivity.this, "You Have a Pending Invoice!", Toast.LENGTH_LONG).show();
-//                                for(Food foodlist : foodTemp){
-//                                    foodIdPass.add(foodlist.getId());
-//                                    foodNamePass = foodNamePass + foodlist.getName() + ",";
-//                                    foodPricePass = foodPricePass + foodlist.getPrice();
-//                                }
-                                //intentSelesai.putExtra("foodId", foodId);
+                                detailFoodNameList = String.join(",", detailFoodName);
+
                                 intentSelesai.putExtra("detailInvoiceId", detailInvoiceId);
-                                intentSelesai.putExtra("foodName", detailFoodName);
+                                intentSelesai.putExtra("detailFoodName", detailFoodNameList);
                                 intentSelesai.putExtra("detailDate", detailDate);
+                                intentSelesai.putExtra("detailNameSeller", detailNameSeller);
+                                intentSelesai.putExtra("detailProvinceSeller", detailProvinceSeller);
                                 intentSelesai.putExtra("detailPaymentType", detailPaymentType);
+                                intentSelesai.putExtra("detailCodePromo", detailCodePromo);
                                 intentSelesai.putExtra("detailTotalPrice", detailTotalPrice);
                                 intentSelesai.putExtra("currentUserId", currentUserId);
                                 intentSelesai.putExtra("currentUserName", currentUserName);
