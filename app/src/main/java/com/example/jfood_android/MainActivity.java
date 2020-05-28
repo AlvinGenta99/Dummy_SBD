@@ -38,19 +38,20 @@ public class MainActivity extends AppCompatActivity {
     private int foodTotalPrice = 0;
     private int deliveryFee = 5000;
     private Food foodList;
-    private String nameList, idList;
-    private ArrayList<String> foodCartName = new ArrayList<>();
-    private ArrayList<String> foodCartId= new ArrayList<>();
+    private String nameList;
+    private String idList;
+    private ArrayList<String> foodCartName;
+    private ArrayList<String> foodCartId;
     private HashMap<Seller, ArrayList<Food>> childMapping = new HashMap<>();
     private static int currentUserId;
     private static String currentUserName;
     private static String currentUserEmail;
     private static SessionManager sessionToken;
 
-
     //VariableInvoice
     private int detailInvoiceId;
     private String detailDate;
+    private int loopTotalPrice;
     private int detailTotalPrice;
     private ArrayList<String> detailFoodName;
     private String detailFoodNameList;
@@ -122,15 +123,22 @@ public class MainActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick (View view){
+                foodCartName =  new ArrayList<>();
+                foodCartId = new ArrayList<>();
+                idList = "";
+                nameList = "";
+                loopTotalPrice = 0;
                 for(Food ptr : foodTemp) {
                     foodCartId.add(String.valueOf(ptr.getId()));
                     foodCartName.add(ptr.getName());
-                    foodTotalPrice = foodTotalPrice + ptr.getPrice();
+                    loopTotalPrice = loopTotalPrice + ptr.getPrice();
                 }
+                foodTotalPrice = loopTotalPrice;
                 idList = String.join(", ", foodCartId);
                 nameList = String.join(", ", foodCartName);
-
-                intent.putExtra("item_id",idList);
+                Log.e("ID List", idList);
+                Log.e("Name List", nameList);
+                intent.putExtra("idList",idList);
                 intent.putExtra("nameList",nameList);
 //                intent.putExtra("item_category",foodCategory);
                 intent.putExtra("foodTotalPrice",foodTotalPrice);

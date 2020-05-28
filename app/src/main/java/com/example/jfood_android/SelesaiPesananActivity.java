@@ -24,8 +24,8 @@ public class SelesaiPesananActivity extends AppCompatActivity {
     private static String currentUserName;
     private int detailInvoiceId;
     private String detailDate;
-    private int detailTotalPrice;
-    private String detailFoodName = "";
+    private int detailTotalPrice = 0;
+    private String detailFoodName;
     private String detailFoodCategory;
     private String detailNameSeller;
     private String detailProvinceSeller;

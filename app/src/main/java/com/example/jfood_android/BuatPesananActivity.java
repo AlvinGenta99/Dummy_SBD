@@ -34,7 +34,7 @@ public class BuatPesananActivity extends AppCompatActivity {
     private int deliveryFee= 5000;
     private String foodCategory;
     private String promoCode;
-    private int foodTotalPrice;
+    private int foodTotalPrice = 0;
     private String selectPayment;
     private ArrayList<Seller> listSeller = new ArrayList<>();
     private ArrayList<Food> foodIdList = new ArrayList<>();
@@ -60,7 +60,7 @@ public class BuatPesananActivity extends AppCompatActivity {
         if (extras != null) {
             currentUserName = extras.getString("currentUserName");
             currentUserId = extras.getInt("currentUserId");
-            foodId = extras.getString("item_id");
+            foodId = extras.getString("idList");
             foodName = extras.getString("nameList");
             foodTotalPrice = extras.getInt("foodTotalPrice");
         }
@@ -94,6 +94,7 @@ public class BuatPesananActivity extends AppCompatActivity {
         btnCount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.e("ID List", foodId);
                 int selectedRadioId = radioGroup.getCheckedRadioButtonId();
                 RadioButton selectedRadio = findViewById(selectedRadioId);
                 String selected = selectedRadio.getText().toString().trim();

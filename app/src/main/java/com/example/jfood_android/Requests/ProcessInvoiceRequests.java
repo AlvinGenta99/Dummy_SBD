@@ -9,7 +9,6 @@ import java.util.Map;
 
 public class ProcessInvoiceRequests extends StringRequest {
     private static String URLComplete = "http://192.168.0.5:8080/invoice/invoiceStatus/";
-    private static String URLCancel = "http://192.168.0.5:8080/invoice/";
     private Map<String, String> params;
 
     public ProcessInvoiceRequests(String invoiceId, String invoiceStatus, Response.Listener<String> listener) {
