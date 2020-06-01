@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#f4f4f4"
+    android:background="#FBF8D6"
+    android:baselineAligned="false"
     android:orientation="vertical">
 
     <ExpandableListView
@@ -13,22 +15,57 @@
 
     </ExpandableListView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/viewInvoice"
-        android:layout_width="226dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:baselineAligned="false"
-        android:clickable="true"
-        app:srcCompat="@android:drawable/ic_dialog_info" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnFinishOrder"
-        android:layout_width="412dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:baselineAligned="true"
-        android:text="Process Order" />
+        <Button
+            android:id="@+id/btnFinishOrder"
+            android:layout_width="176dp"
+            android:layout_height="41dp"
+            android:layout_gravity="right"
+            android:background="@drawable/btn_accept"
+            android:baselineAligned="true"
+            android:text="Process Order"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.931"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.622" />
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="125dp"
+            android:layout_height="39dp"
+            android:layout_gravity="right"
+            android:background="@drawable/btn_cancel"
+            android:baselineAligned="true"
+            android:text="Logout"
+            android:textColor="#F6F4F4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.111"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.617" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/viewInvoice"
+            android:layout_width="226dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:baselineAligned="false"
+            android:clickable="true"
+            app:backgroundTint="#EDA005"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.954"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@android:drawable/ic_dialog_info" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
 

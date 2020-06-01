@@ -1,13 +1,19 @@
+/**
+ * Class Sesion Manager untuk membuat Session
+ *
+ * @author Alvin Genta Pratama
+ * @version 5.28.20
+ */
 package com.example.jfood_android;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import com.example.jfood_android.LoginActivity;
-
+import com.example.jfood_android.Activities.LoginActivity;
 import java.util.HashMap;
 
 public class SessionManager {
+
     //Variable Declaration
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
@@ -44,23 +50,41 @@ public class SessionManager {
         return user;
     }
 
-    //Getter
+    /**
+     * Fungsi untuk mengambil User ID
+     * @return return sharedPreferences KEY_ID
+     */
     public int getUserId(){
         return sharedPreferences.getInt(KEY_ID, 0);
     }
 
+    /**
+     * Fungsi untuk mengambil Email dari User
+     * @return return sharedPreferences KEY_NAME
+     */
     public String getUserEmail() {
         return sharedPreferences.getString(KEY_EMAIL, null);
     }
 
+    /**
+     * Fungsi untuk mengambil Name dari User
+     * @return return sharedPreferences KEY_NAME
+     */
     public String getUserName() {
         return sharedPreferences.getString(KEY_NAME, null);
     }
 
+    /**
+     * Fungsi untuk mengcek Login Status User
+     * @return return sharedPreferences KEY_NAME
+     */
     public boolean isLoggedIn() {
         return sharedPreferences.getBoolean(LOGIN_STATUS, false);
     }
 
+    /**
+     * Fungsi untuk mengecek Login dari User
+     */
     public void checkLogin() {
         if (getUserEmail() == null || getUserId() > 0) {
             Intent intent = new Intent(_context, LoginActivity.class);

@@ -1,4 +1,4 @@
-package com.example.jfood_android;
+package com.example.jfood_android.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.*;
@@ -11,10 +11,14 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
+import com.example.jfood_android.R;
 import com.example.jfood_android.Requests.LoginRequest;
+import com.example.jfood_android.SessionManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
 
 public class LoginActivity extends AppCompatActivity {
     @Override
@@ -39,13 +43,17 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         try {
+                            final SessionManager session = new SessionManager(getApplicationContext());
                             JSONObject jsonObject = new JSONObject(response);
                             if (jsonObject != null) {
                                 Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_LONG).show();
+
                                 Intent loginIntent = new Intent(LoginActivity.this, MainActivity.class);
                                 loginIntent.putExtra("currentUserId", jsonObject.getInt("id"));
                                 loginIntent.putExtra("currentUserName", jsonObject.getString("name"));
                                 loginIntent.putExtra("currentUserEmail", jsonObject.getString("email"));
+
+
                                 startActivity(loginIntent);
                                 finish();
                             }

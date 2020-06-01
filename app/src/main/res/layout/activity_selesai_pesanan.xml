@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SelesaiPesananActivity">
+    android:background="#FBF8D6"
+    tools:context=".Activities.SelesaiPesananActivity">
 
     <TextView
         android:id="@+id/paymentType"
@@ -88,24 +89,24 @@
         android:id="@+id/staticFoodName2"
         android:layout_width="96dp"
         android:layout_height="22dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="68dp"
         android:layout_marginEnd="124dp"
         android:text="Ordered Food"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.272"
+        app:layout_constraintHorizontal_bias="0.23"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/foodName"
-        android:layout_width="169dp"
-        android:layout_height="78dp"
-        android:layout_marginTop="84dp"
+        android:layout_width="251dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="100dp"
         android:layout_marginBottom="44dp"
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/food_price"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.802"
+        app:layout_constraintHorizontal_bias="0.337"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
@@ -123,20 +124,19 @@
         app:layout_constraintHorizontal_bias="0.14"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.258" />
+        app:layout_constraintVertical_bias="0.276" />
 
     <TextView
-        android:id="@+id/staticProvince"
-        android:layout_width="96dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="44dp"
-        android:text="Province"
+        android:id="@+id/provinceName"
+        android:layout_width="102dp"
+        android:layout_height="23dp"
+        android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/provinceName"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.828"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.379" />
+        app:layout_constraintVertical_bias="0.396" />
 
     <TextView
         android:id="@+id/staticSellerName5"
@@ -149,19 +149,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.308" />
-
-    <TextView
-        android:id="@+id/provinceName"
-        android:layout_width="102dp"
-        android:layout_height="23dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.828"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.378" />
+        app:layout_constraintVertical_bias="0.325" />
 
     <TextView
         android:id="@+id/sellerName"
@@ -173,7 +161,20 @@
         app:layout_constraintHorizontal_bias="0.828"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.307" />
+        app:layout_constraintVertical_bias="0.326" />
+
+    <TextView
+        android:id="@+id/staticProvince"
+        android:layout_width="96dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="44dp"
+        android:text="Province"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/provinceName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.397" />
 
     <TextView
         android:id="@+id/staticDate"
@@ -181,6 +182,7 @@
         android:layout_height="22dp"
         android:layout_marginStart="44dp"
         android:text="Date"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/date"
         app:layout_constraintHorizontal_bias="0.25"
@@ -218,8 +220,9 @@
         android:id="@+id/btnCancel"
         android:layout_width="199dp"
         android:layout_height="31dp"
-        android:background="@color/Red_Cancel"
+        android:background="@drawable/btn_cancel"
         android:text="CANCEL"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -231,7 +234,7 @@
         android:id="@+id/btnFinish"
         android:layout_width="221dp"
         android:layout_height="32dp"
-        android:background="@color/Green_OK"
+        android:background="@drawable/btn_accept"
         android:text="FINISH"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"

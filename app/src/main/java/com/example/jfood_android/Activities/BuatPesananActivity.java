@@ -1,7 +1,8 @@
-package com.example.jfood_android;;
+package com.example.jfood_android.Activities;;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,8 +18,12 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
+import com.example.jfood_android.Food;
+import com.example.jfood_android.Invoice;
+import com.example.jfood_android.R;
 import com.example.jfood_android.Requests.BuatPesananRequest;
 import com.example.jfood_android.Requests.CheckPromoRequest;
+import com.example.jfood_android.Seller;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -64,7 +69,7 @@ public class BuatPesananActivity extends AppCompatActivity {
             foodName = extras.getString("nameList");
             foodTotalPrice = extras.getInt("foodTotalPrice");
         }
-
+        Log.e("Food List", foodId);
         //Assign initial value
         tvFoodName.setText(foodName);
         etPromoCode.setVisibility(View.INVISIBLE);
@@ -86,6 +91,10 @@ public class BuatPesananActivity extends AppCompatActivity {
                     case "Via CASH":
                         etPromoCode.setVisibility(View.INVISIBLE);
                         tvTextCode.setVisibility(View.INVISIBLE);
+                        break;
+                    default:
+                        AlertDialog.Builder builder = new AlertDialog.Builder(BuatPesananActivity.this);
+                        builder.setMessage("Pick one Payment Method!").create().show();
                         break;
                 }
             }
@@ -177,6 +186,7 @@ public class BuatPesananActivity extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject(responsePesan);
                             if (jsonObject != null) {
+                                Log.e("Hasil: ", jsonObject.toString());
                                 Toast.makeText(BuatPesananActivity.this, "Your order has been saved", Toast.LENGTH_LONG).show();
                                 Intent returnMainIntent = new Intent(BuatPesananActivity.this, MainActivity.class);
                                 startActivity(returnMainIntent);

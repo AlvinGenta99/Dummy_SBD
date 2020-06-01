@@ -1,14 +1,3 @@
-/**
- * class abstract Invoice digunakan untuk memberi info tentang tagihan sebuah pesanan.
- * Masing-masing komponen memiliki fungsi get (untuk mengambil value yang ada) dan set (untuk memperbarui value dari komponen).
- *
- * Parameter pada Invoice mencakup id invoice (id), list makanan yang dipesan (foods),
- * tanggal pemesanan (date), Cutomer yang memesan (customer),dan status invoice (invoiceStatus).
- *
- * customer tidak dpapat diubah dari class Invoice secara langsung.
- * @author Alvin Genta Pratama
- * @version 5.27.20
- */
 package com.example.jfood_android;
 
 import java.util.*;
@@ -20,9 +9,6 @@ import java.time.LocalDate;
 
 public class Invoice
 {
-    /**
-     * Variable Invoice
-     */
     private int id;
     private ArrayList<Food> temp = new ArrayList<>();
     private int totalPrice;

@@ -16,11 +16,6 @@ public class ProcessInvoiceRequests extends StringRequest {
         params = new HashMap<>();
     }
 
-//    public ProcessInvoiceRequests(String invoiceId, Response.Listener<String> listener) {
-//        super(Request.Method.DELETE, URLCancel + invoiceId, listener, null);
-//        params = new HashMap<>();
-//    }
-
     @Override
     protected Map<String, String> getParams() throws AuthFailureError {
         return params;

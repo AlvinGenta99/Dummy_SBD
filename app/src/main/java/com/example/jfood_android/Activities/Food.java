@@ -1,13 +1,5 @@
-/**
- * class Food digunakan untuk memberi info tentang Makanan yang dijual.
- * Masing-masing komponen memiliki fungsi get (untuk mengambil value yang ada) dan set (untuk memperbarui value dari komponen).
- * seller tidak dapat diubah dari class Food secara langsung.
- * @author Alvin Genta Pratama
- * @version 1.1.27.20
- */
 package com.example.jfood_android;
 
-import com.example.jfood_android.Seller;
 public class Food
 {
     /**
@@ -35,10 +27,6 @@ public class Food
         this.seller = seller;
     }
 
-    /**
-     * Mengambil id dari class Food
-     * @return id
-     */
     public int getId()
     {
         return id;
@@ -99,7 +87,7 @@ public class Food
 
     /**
      * Menetapkan value seller dari class Food
-     * @param seller = Detail Seller dari Makanan
+     * @param seller
      */
     public void setSeller(Seller seller)
     {
@@ -108,7 +96,7 @@ public class Food
 
     /**
      * Menetapkan value price dari class Food
-     * @param price = Harga makanan
+     * @param price
      */
     public void setPrice (int price)
     {
@@ -117,10 +105,21 @@ public class Food
 
     /**
      * Menetapkan value category dari class Food
-     * @param category = Kategori Food berdasarkan Enum FoodCategory
+     * @param category
      */
     public void setCategory(String category)
     {
         this.category = category;
+    }
+
+    public String toString(){
+        String string =  "Id: "+getId()+
+                "\nNama: "+getName() +
+                "\nSeller: "+getSeller().getName() +
+                "\nCity: "+ seller.getLocation().getCity() +
+                "\nPrice : "+getPrice() +
+                "\nCategory: " + getCategory();
+        return string;
+
     }
 }

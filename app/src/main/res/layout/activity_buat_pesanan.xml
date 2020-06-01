@@ -4,19 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BuatPesananActivity">
+    android:background="#FBF8D6"
+    tools:context=".Activities.BuatPesananActivity">
 
     <TextView
         android:id="@+id/staticPayMethod"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Payment Method"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintHorizontal_bias="0.113"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.348" />
+        app:layout_constraintVertical_bias="0.35" />
 
     <TextView
         android:id="@+id/staticPrice"
@@ -24,24 +27,26 @@
         android:layout_height="22dp"
         android:layout_marginEnd="116dp"
         android:text="Total Price"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/food_price"
-        app:layout_constraintHorizontal_bias="0.822"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.259" />
+        app:layout_constraintVertical_bias="0.282" />
 
     <TextView
         android:id="@+id/staticTotalPrice"
         android:layout_width="96dp"
         android:layout_height="22dp"
         android:text="Total Price"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/total_price"
-        app:layout_constraintHorizontal_bias="0.331"
+        app:layout_constraintHorizontal_bias="0.374"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.661" />
+        app:layout_constraintVertical_bias="0.692" />
 
     <TextView
         android:id="@+id/staticFoodName"
@@ -49,6 +54,7 @@
         android:layout_height="22dp"
         android:layout_marginStart="52dp"
         android:text="Food Name"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -59,36 +65,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Order"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintHorizontal_bias="0.084"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.062" />
 
     <TextView
         android:id="@+id/food_name"
-        android:layout_width="129dp"
-        android:layout_height="61dp"
+        android:layout_width="273dp"
+        android:layout_height="55dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.83"
+        app:layout_constraintHorizontal_bias="0.376"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.131" />
+        app:layout_constraintVertical_bias="0.181" />
 
     <TextView
         android:id="@+id/food_price"
         android:layout_width="73dp"
         android:layout_height="23dp"
         android:text="TextView"
+        android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.78"
+        app:layout_constraintHorizontal_bias="0.781"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.265" />
+        app:layout_constraintVertical_bias="0.281" />
 
     <RadioGroup
         android:id="@+id/Radio_Group"
@@ -100,7 +109,7 @@
         app:layout_constraintHorizontal_bias="0.218"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/staticPayMethod"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.102">
 
         <RadioButton
             android:id="@+id/cash"
@@ -120,25 +129,25 @@
         android:id="@+id/promo_code"
         android:layout_width="112dp"
         android:layout_height="43dp"
-        android:layout_marginBottom="52dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/total_price"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.857"
+        app:layout_constraintHorizontal_bias="0.882"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.61" />
 
     <TextView
         android:id="@+id/staticPromoCode"
         android:layout_width="96dp"
         android:layout_height="22dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="40dp"
         android:text="Promo Code"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/staticTotalPrice"
         app:layout_constraintEnd_toStartOf="@+id/promo_code"
-        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintHorizontal_bias="0.398"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -146,17 +155,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.781"
+        app:layout_constraintHorizontal_bias="0.789"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.662" />
+        app:layout_constraintVertical_bias="0.693" />
 
     <Button
         android:id="@+id/hitung"
         android:layout_width="230dp"
         android:layout_height="49dp"
+        android:background="@drawable/btn_accept"
         android:text="Count"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -169,6 +180,7 @@
         android:id="@+id/pesan"
         android:layout_width="231dp"
         android:layout_height="45dp"
+        android:background="@drawable/btn_accept"
         android:text="Order"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

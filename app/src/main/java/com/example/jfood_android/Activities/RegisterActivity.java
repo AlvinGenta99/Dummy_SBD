@@ -1,4 +1,4 @@
-package com.example.jfood_android;
+package com.example.jfood_android.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.*;
 import com.android.volley.*;
 import com.android.volley.toolbox.Volley;
+import com.example.jfood_android.R;
 import com.example.jfood_android.Requests.RegisterRequest;
 
 import org.json.*;

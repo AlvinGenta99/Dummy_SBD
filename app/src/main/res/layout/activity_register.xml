@@ -4,31 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    android:background="#FBF8D6"
+    tools:context=".Activities.RegisterActivity">
+
+    <TextView
+        android:id="@+id/j_jfood"
+        android:layout_width="141dp"
+        android:layout_height="65dp"
+        android:background="#FFC107"
+        android:text="J"
+        android:textColor="#FFFFFF"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.184" />
+
+    <TextView
+        android:id="@+id/food_Jfood"
+        android:layout_width="118dp"
+        android:layout_height="59dp"
+        android:background="#FBF8D6"
+        android:text="Food"
+        android:textColor="#6b4800"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.182" />
 
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="335dp"
         android:layout_height="40dp"
+        android:background="@drawable/btn_accept"
         android:text="Register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.738" />
-
-    <EditText
-        android:id="@+id/etEmail"
-        android:layout_width="335dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="text|textEmailAddress"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35" />
 
     <EditText
         android:id="@+id/etName"
@@ -41,7 +60,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.238" />
+        app:layout_constraintVertical_bias="0.37" />
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="335dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="text|textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.481" />
 
     <EditText
         android:id="@+id/etPassword"
@@ -54,5 +86,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.471" />
+        app:layout_constraintVertical_bias="0.603" />
 </androidx.constraintlayout.widget.ConstraintLayout>

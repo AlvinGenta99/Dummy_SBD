@@ -24,7 +24,7 @@ public class Seller
      * @param id (ID penjual)
      * @param name (Nama penjual)
      * @param email (E-mail User)
-     * @param phoneNumber (No. Telp penjual)
+     * @param phoneNUmber (No. Telp penjual)
      * @param location (Lokasi penjual)
      */
     public Seller(int id, String name, String email, String phoneNumber, Location location){

@@ -1,21 +1,21 @@
 package com.example.jfood_android.Requests;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
-import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.Map;
 
-public class CheckInvoiceRequest extends StringRequest{
-    private static String urlCheckPromo = "http://192.168.0.5:8080/invoice/customer/";
+public class GetOngoingInvoiceRequest extends StringRequest {
+    private static String urlCheckOngoing = "http://192.168.0.5:8080/invoice/ongoing/";
     private Map<String, String> params;
-    private String code;
+    private String id;
 
-    public CheckInvoiceRequest(String code, Response.Listener<String> listener) {
-        super(Method.GET, urlCheckPromo + code, listener,null);
+    public GetOngoingInvoiceRequest(String id, Response.Listener<String> listener) {
+        super(Request.Method.GET, urlCheckOngoing  + id, listener,null);
         params = new HashMap<>();
-
     }
 
     @Override
