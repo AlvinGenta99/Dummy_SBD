@@ -9,7 +9,6 @@ package com.example.jfood_android.Activities;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -167,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
                         foodCartName.add(ptr.getName());
                         loopTotalPrice = loopTotalPrice + ptr.getPrice();
                     }
-
+                    
                     foodTotalPrice = loopTotalPrice;
                     idList = String.join(", ", foodCartId);
                     nameList = String.join(", ", foodCartName);
