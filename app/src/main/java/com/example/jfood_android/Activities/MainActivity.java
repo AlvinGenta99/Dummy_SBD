@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
                         foodCartName.add(ptr.getName());
                         loopTotalPrice = loopTotalPrice + ptr.getPrice();
                     }
-                    
+
                     foodTotalPrice = loopTotalPrice;
                     idList = String.join(", ", foodCartId);
                     nameList = String.join(", ", foodCartName);
